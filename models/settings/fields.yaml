@@ -1,0 +1,25 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  recipient_email:
+    label: Recipient Email
+    comment:  The person to whom the email is sent to
+    description:  The person to whom the email is sent to
+    type: text
+  recipient_name:
+    label: Recipient Name
+    comment:  The full name of the person to whom the email is sent to
+    description:  The full name of the person to whom the email is sent to
+    type: text
+  subject:
+      label: Subject
+      comment:  The subject of the email you receive after being contacted
+      description:  The subject of the email you receive after being contacted
+      type: text
+  confirmation_text:
+      label: Confirmation text
+      comment:  The text shown to user after contacting you
+      description:  The text shown to user after contacting you
+      type: textarea

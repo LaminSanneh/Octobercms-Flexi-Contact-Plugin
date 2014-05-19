@@ -1,0 +1,21 @@
+<form
+        data-request="{{ __SELF__ }}::onMailSent"
+        data-request-update="'{{ __SELF__ }}::confirm': '#result'"
+        data-request-success="$('#input-item').val('')">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="input-group">
+                <input type="text" class="form-control" value="" name="name" placeholder="Enter name">
+                <input type="text" class="form-control" value="" name="email" placeholder="Enter Email">
+                <input type="text" class="form-control" value="" name="subject" placeholder="Enter Subject">
+                <input type="text" class="form-control" value="" name="body" placeholder="Enter Message">
+                <br/>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn btn-primary">Send</button>
+                </span>
+            </div>
+        </div>
+        <ul class="list-group" id="result">
+        </ul>
+    </div>
+</form>
