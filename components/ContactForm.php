@@ -27,9 +27,16 @@ class ContactForm extends ComponentBase{
 
     public function onMailSent(){
 
+        //name of person contacting you
         $name = post('name');
+
+        //email of person contacting you
         $fromEmail = post('email');
+
+        //subject or topic why they are contacting you
         $subject = post('subject');
+
+        //the details of why they contacted you
         $body = post('body');
 
         $data = compact('subject','body','name');
@@ -37,7 +44,7 @@ class ContactForm extends ComponentBase{
         \Mail::send('laminsanneh.flexicontact::emails.message', $data, function($message) use($fromEmail, $name)
         {
             $message->from($fromEmail, $name);
-            $message->to(Settings::get('recipient_email'), Settings::get('recipient_name'))->subject(Settings::get('recipient_name'));
+            $message->to(Settings::get('recipient_email'), Settings::get('recipient_name'))->subject(Settings::get('subject'));
         });
 
         $this->page["confirmation_text"] = Settings::get('confirmation_text');
