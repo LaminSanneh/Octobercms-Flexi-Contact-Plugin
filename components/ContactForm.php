@@ -39,6 +39,15 @@ class ContactForm extends ComponentBase{
         //the details of why they contacted you
         $body = post('body');
 
+        if ( empty($name) )
+            throw new \Exception(sprintf('Please enter your name.'));
+        if ( empty($fromEmail) )
+            throw new \Exception(sprintf('Please enter an email address.'));
+        if ( empty($subject) )
+            throw new \Exception(sprintf('Please enter subject.'));
+        if ( empty($body) )
+            throw new \Exception(sprintf('Please enter your message.'));
+
         $data = compact('subject','body','name');
 
         \Mail::send('laminsanneh.flexicontact::emails.message', $data, function($message) use($fromEmail, $name)
