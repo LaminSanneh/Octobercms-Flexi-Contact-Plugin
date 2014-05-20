@@ -2,4 +2,7 @@
     - First Version with basic functionality
 1.0.1:
     - Fixed email subject to send actual subject set in backend
-    
+1.0.2:
+    - Added validation to contact form fields
+1.0.3:
+    - Changed body input field type from text to textarea
