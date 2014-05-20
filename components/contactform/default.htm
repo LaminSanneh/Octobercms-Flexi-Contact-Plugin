@@ -1,14 +1,14 @@
 <form
         data-request="{{ __SELF__ }}::onMailSent"
         data-request-update="'{{ __SELF__ }}::confirm': '#result'"
-        data-request-success="$('.panel-body').val('')">
+        data-request-success="$('.panel-body').text('')">
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="input-group">
                 <input type="text" class="form-control" value="" name="name" placeholder="Enter name">
                 <input type="text" class="form-control" value="" name="email" placeholder="Enter Email">
                 <input type="text" class="form-control" value="" name="subject" placeholder="Enter Subject">
-                <input type="text" class="form-control" value="" name="body" placeholder="Enter Message">
+                <textarea class="form-control" value="" name="body" placeholder="Enter Message" cols="30" rows="10"></textarea>
                 <p>
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn btn-primary">Send</button>
