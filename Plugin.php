@@ -20,7 +20,7 @@ class Plugin extends PluginBase{
     {
         return [
             'name'        => 'Flexi Contact',
-            'description' => 'A flexible and configurable contact form',
+            'description' => 'A Flexible and Configurable Contact Form to Add to any Page',
             'author'      => 'Lamin Sanneh',
             'icon'        => 'icon-leaf'
         ];
