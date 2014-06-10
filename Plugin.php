@@ -39,7 +39,7 @@ class Plugin extends PluginBase{
             'settings' => [
                 'label'       => 'Flexi Contact Settings',
                 'description' => 'Manage the settings for the flexi contact form.',
-                'category'    => 'Marketting',
+                'category'    => 'Marketing',
                 'icon'        => 'icon-cog',
                 'class'       => 'LaminSanneh\FlexiContact\Models\Settings',
                 'order'       => 100

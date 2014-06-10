@@ -8,3 +8,5 @@
     - Changed body input field type from text to textarea
 1.0.4:
     - Updated default component markup to use more appropriate looking twitter bootstrap classes
+1.0.5:
+    - Corrected spelling for Marketing on the backend settings
