@@ -51,29 +51,48 @@ class ContactForm extends ComponentBase{
         //the details of why they contacted you
         $body = post('body');
 
-        if ( empty($name) )
-            throw new \Exception(sprintf('Please enter your name.'));
-        if ( empty($fromEmail) )
-            throw new \Exception(sprintf('Please enter an email address.'));
-        if ( empty($subject) )
-            throw new \Exception(sprintf('Please enter subject.'));
-        if ( empty($body) )
-            throw new \Exception(sprintf('Please enter your message.'));
+        $errorHappened = false;
+        if (empty($name) || empty($fromEmail) || empty($subject) || empty($body)){
+            $errorHappened = true;
+            $flashMessae = '';
+            if ( empty($name) )
+                $flashMessae .= '<p>Please enter your name.</p>';
+            if ( empty($fromEmail) )
+                $flashMessae .= '<p>Please enter an email address.</p>';
+            if ( empty($subject) )
+                $flashMessae .= '<p>Please enter subject.';
+            if ( empty($body) )
+                $flashMessae .= '<p>Please enter your message.</p>';
+            if ($errorHappened)
+                \Flash::warning($flashMessae);
+            $this->page['errorHappened'] = $errorHappened;
+        }
 
         $data = compact('subject','body','name');
 
-        \Mail::send('laminsanneh.flexicontact::emails.message', $data, function($message) use($fromEmail, $name)
-        {
-            $message->from($fromEmail, $name);
-            $message->to(Settings::get('recipient_email'), Settings::get('recipient_name'))->subject(Settings::get('subject'));
-        });
-
         $this->page["confirmation_text"] = Settings::get('confirmation_text');
+        if ($errorHappened)
+            return ['error' => true, 'message' => 'One or more elements failed validation'];
+        else
+            \Mail::send('laminsanneh.flexicontact::emails.message', $data, function($message) use($fromEmail, $name)
+            {
+                $message->from($fromEmail, $name);
+                $message->to(Settings::get('recipient_email'), Settings::get('recipient_name'))->subject(Settings::get('subject'));
+            });
+            return ['error' => false];
+    }
+
     public function onRun(){
 
         if($this->property('injectBootstrapAssets') == true){
             $this->addCss('assets/css/bootstrap.css');
+            $this->addJs('assets/js/bootstrap.js');
+            $this->addJs('assets/js/main.js');
         }
     }
+
+    function onFlash(){
+
+        return ['#flashMessages' => $this->renderPartial('flash-messages')];
     }
 }
