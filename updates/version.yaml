@@ -14,3 +14,6 @@
     - Added ability to include bootstrap or not on component config
     - Add proper validation message outputting
     - Added option to include or exclude main script file
+1.0.6:
+    - Updated contact component default markup file
+    - Updated readme file

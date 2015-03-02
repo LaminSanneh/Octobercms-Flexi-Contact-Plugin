@@ -1,7 +1,6 @@
 <div class="confirm-container">
     <!--This will contain the confirmation when the email is successfully sent-->
 </div>
-<!--<div class="alert alert-{{ type }}">{{ message }}</div>-->
 <form class="flexiContactForm" role="form"
       data-request="{{ __SELF__ }}::onMailSent"
       data-request-update="'{{ __SELF__ }}::confirm': '.confirm-container'">

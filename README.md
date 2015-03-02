@@ -9,7 +9,7 @@ A contact form plugin for [OctoberCms](http://www.octobercms.com) to help easily
 
 2. Click on the settings subsection.
 
-3. Under the **Marketting** area, there should be a plugin setting called "Flexi Contact Settings", click on that.
+3. Under the **Marketing** area, there should be a plugin setting called "Flexi Contact Settings", click on that.
 
 4. Read the sections and you must fill all of them.
 
@@ -27,10 +27,12 @@ After doing the setup steps, you can use the contact form in two ways:
 + The component has a default markup as shown below and depends on bootstrap.
 
 ```html
-<form role="form"
+<div class="confirm-container">
+    <!--This will contain the confirmation when the email is successfully sent-->
+</div>
+<form class="flexiContactForm" role="form"
       data-request="{{ __SELF__ }}::onMailSent"
-      data-request-update="'{{ __SELF__ }}::confirm': '.confirm-container'"
-      data-request-success="$('.form-groups').hide(1000)">
+      data-request-update="'{{ __SELF__ }}::confirm': '.confirm-container'">
 
     <div class="form-groups">
         <div class="form-group">
@@ -46,10 +48,6 @@ After doing the setup steps, you can use the contact form in two ways:
             <textarea class="form-control" value="" name="body" placeholder="Enter Message" cols="30" rows="10"></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-lg pull-right">Send</button>
-    </div>
-
-    <div class="confirm-container">
-    <!--This will contain the confirmation when the email is successfully sent-->
     </div>
 </form>
 ```
@@ -61,10 +59,12 @@ After doing the setup steps, you can use the contact form in two ways:
 If you need to customize the markup for custom styling, donot embed the component as instructed above. Instead, embed the following html anywhere and remove the bootstrap specific classes and add your own. However, you must leave the (data-request, data-request-success and data-request-update) data-attributes intact as they are needed for the ajax to work. Refer to this [doc section](http://octobercms.com/docs/cms/ajax) to know what's happening here in detail.
 
 ```html
-<form role="form"
+<div class="confirm-container">
+    <!--This will contain the confirmation when the email is successfully sent-->
+</div>
+<form class="flexiContactForm" role="form"
       data-request="{{ __SELF__ }}::onMailSent"
-      data-request-update="'{{ __SELF__ }}::confirm': '.confirm-container'"
-      data-request-success="$('.form-groups').hide(1000)">
+      data-request-update="'{{ __SELF__ }}::confirm': '.confirm-container'">
 
     <div class="form-groups">
         <div class="form-group">
@@ -81,12 +81,18 @@ If you need to customize the markup for custom styling, donot embed the componen
         </div>
         <button type="submit" class="btn btn-primary btn-lg pull-right">Send</button>
     </div>
-
-    <div class="confirm-container">
-    <!--This will contain the confirmation when the email is successfully sent-->
-    </div>
 </form>
 ```
+
+##Component Options
+
+###1. injectBootstrapAssets
+Lets you optionally include or exclude bootstrap asset files(javascript and css) in your page.
+This is useful incase you already have bootstrap loaded as part of your theme.
+
+###2. injectMainScript
+Lets you optionally include or exclude the main script files in your page.
+This is useful if you want to handle the form events yourself and dont need the functionality in there.
 
 #**Note**
 > Please note that the default markup provided by the form component relies on bootstrap and it's classes for styling. If you rely on it, you must make sure that bootstrap is loaded for it to be properly styled. I encourage you to style it using your own custom css to fit the overall style of your website.
