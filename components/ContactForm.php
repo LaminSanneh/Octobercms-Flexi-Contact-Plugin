@@ -33,6 +33,12 @@ class ContactForm extends ComponentBase{
                 'description' => 'Whether To Insert bootstrap css and javascript files',
                 'type'        => 'checkbox',
                 'default'     => true,
+            ],
+            'injectMainScript' => [
+                'title'       => 'Inject Main Script',
+                'description' => 'Whether To Insert Main script that comes with component',
+                'type'        => 'checkbox',
+                'default'     => true,
             ]
         ];
     }
@@ -88,7 +94,10 @@ class ContactForm extends ComponentBase{
             $this->addCss('assets/css/bootstrap.css');
             $this->addJs('assets/js/bootstrap.js');
         }
-        $this->addJs('assets/js/main.js');
+
+        if($this->property('injectMainScript') == true) {
+            $this->addJs('assets/js/main.js');
+        }
     }
 
     function onFlash(){
