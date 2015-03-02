@@ -12,4 +12,4 @@
     - Corrected spelling for Marketing on the backend settings
 1.0.6:
     - Added ability to include bootstrap or not on component config
-    - Added ability to include bootstrap or not on component config
+    - Add proper validation message outputting
