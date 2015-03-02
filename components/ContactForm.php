@@ -25,6 +25,18 @@ class ContactForm extends ComponentBase{
         ];
     }
 
+    public function defineProperties(){
+
+        return [
+            'injectBootstrapAssets' => [
+                'title'       => 'Inject Bootstrap Assets',
+                'description' => 'Whether To Insert bootstrap css and javascript files',
+                'type'        => 'checkbox',
+                'default'     => true,
+            ]
+        ];
+    }
+
     public function onMailSent(){
 
         //name of person contacting you
@@ -57,5 +69,11 @@ class ContactForm extends ComponentBase{
         });
 
         $this->page["confirmation_text"] = Settings::get('confirmation_text');
+    public function onRun(){
+
+        if($this->property('injectBootstrapAssets') == true){
+            $this->addCss('assets/css/bootstrap.css');
+        }
+    }
     }
 }
