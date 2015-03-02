@@ -87,8 +87,8 @@ class ContactForm extends ComponentBase{
         if($this->property('injectBootstrapAssets') == true){
             $this->addCss('assets/css/bootstrap.css');
             $this->addJs('assets/js/bootstrap.js');
-            $this->addJs('assets/js/main.js');
         }
+        $this->addJs('assets/js/main.js');
     }
 
     function onFlash(){
