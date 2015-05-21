@@ -88,7 +88,7 @@ class ContactForm extends ComponentBase{
         }
 
         // If everything is fine - send an email
-        Mail::send('laminsanneh.flexicontact::emails.message', $data, function($message)
+        Mail::send('laminsanneh.flexicontact::emails.message', post(), function($message)
         {
             $message->from(post('email'), post('name'))
                 ->to(Settings::get('recipient_email'), Settings::get('recipient_name'))
