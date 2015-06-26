@@ -11,8 +11,36 @@ namespace LaminSanneh\FlexiContact\components;
 
 use Cms\Classes\ComponentBase;
 use LaminSanneh\FlexiContact\Models\Settings;
+use Mail;
+use Validator;
+use ValidationException;
 
 class ContactForm extends ComponentBase{
+
+    /**
+     * Contact form validation rules.
+     * @var array
+     */
+    public $formValidationRules = [
+        'name' => ['required'],
+        'email' => ['required', 'email'],
+        'subject' => ['required'],
+        'body' => ['required'],
+    ];
+
+    /**
+     * Append custom validation messages. This is used to extend the component
+     * with different locales.
+     *
+     * Example:
+     * \Event::listen('cms.component.beforeRunAjaxHandler', function($handler) {
+     *     if (get_class($handler) !== 'LaminSanneh\FlexiContact\components\ContactForm') return;
+     *     $handler->customMessages = (array) Lang::get('mja.events::validation');
+     * });
+     *
+     * @var array
+     */
+    public $customMessages = [];
 
     /**
      * Returns information about this component, including name and description.
@@ -43,49 +71,32 @@ class ContactForm extends ComponentBase{
         ];
     }
 
-    public function onMailSent(){
+    /**
+     * AJAX handler called after the contact form has been submitted.
+     *
+     * @author Matiss Janis Aboltins <matiss@mja.lv>
+     * @return array
+     */
+    public function onMailSent()
+    {
+        // Build the validator
+        $validator = Validator::make(post(), $this->formValidationRules, $this->customMessages);
 
-        //name of person contacting you
-        $name = post('name');
-
-        //email of person contacting you
-        $fromEmail = post('email');
-
-        //subject or topic why they are contacting you
-        $subject = post('subject');
-
-        //the details of why they contacted you
-        $body = post('body');
-
-        $errorHappened = false;
-        if (empty($name) || empty($fromEmail) || empty($subject) || empty($body)){
-            $errorHappened = true;
-            $flashMessae = '';
-            if ( empty($name) )
-                $flashMessae .= '<p>Please enter your name.</p>';
-            if ( empty($fromEmail) )
-                $flashMessae .= '<p>Please enter an email address.</p>';
-            if ( empty($subject) )
-                $flashMessae .= '<p>Please enter subject.';
-            if ( empty($body) )
-                $flashMessae .= '<p>Please enter your message.</p>';
-            if ($errorHappened)
-                \Flash::warning($flashMessae);
-            $this->page['errorHappened'] = $errorHappened;
+        // Validate
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
         }
 
-        $data = compact('subject','body','name');
+        // If everything is fine - send an email
+        Mail::send('laminsanneh.flexicontact::emails.message', post(), function($message)
+        {
+            $message->from(post('email'), post('name'))
+                ->to(Settings::get('recipient_email'), Settings::get('recipient_name'))
+                ->subject(Settings::get('subject'));
+        });
 
         $this->page["confirmation_text"] = Settings::get('confirmation_text');
-        if ($errorHappened)
-            return ['error' => true, 'message' => 'One or more elements failed validation'];
-        else
-            \Mail::send('laminsanneh.flexicontact::emails.message', $data, function($message) use($fromEmail, $name)
-            {
-                $message->from($fromEmail, $name);
-                $message->to(Settings::get('recipient_email'), Settings::get('recipient_name'))->subject(Settings::get('subject'));
-            });
-            return ['error' => false];
+        return ['error' => false];
     }
 
     public function onRun(){
@@ -98,10 +109,5 @@ class ContactForm extends ComponentBase{
         if($this->property('injectMainScript') == true) {
             $this->addJs('assets/js/main.js');
         }
-    }
-
-    function onFlash(){
-
-        return ['#flashMessages' => $this->renderPartial('flash-messages')];
     }
 }
