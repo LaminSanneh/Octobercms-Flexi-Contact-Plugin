@@ -19,3 +19,5 @@
     - Updated readme file
 1.1.0:
     - Mail template is now registered properly
+1.2.0:
+    - Add Proper validation that can be localized
