@@ -46,4 +46,11 @@ class Plugin extends PluginBase{
             ]
         ];
     }
+    
+    public function registerMailTemplates()
+    {
+        return [
+            'laminsanneh.flexicontact::emails.message' => 'Email sent to the administrator after usser filled out the contact form',
+        ];
+    }
 }
