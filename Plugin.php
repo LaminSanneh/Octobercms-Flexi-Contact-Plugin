@@ -9,6 +9,7 @@
 namespace LaminSanneh\FlexiContact;
 
 use System\Classes\PluginBase;
+use System\Classes\SettingsManager;
 use Backend\Facades\Backend;
 
 class Plugin extends PluginBase{
@@ -33,6 +34,16 @@ class Plugin extends PluginBase{
         ];
     }
 
+    public function registerPermissions()
+    {
+        return [
+            'laminsanneh.flexicontact.access_settings' => [
+                'tab' => SettingsManager::CATEGORY_SYSTEM,
+                'label' => 'Access FlexiContact settings',
+            ],
+        ];
+    }
+
     public function registerSettings()
     {
         return [
@@ -42,7 +53,8 @@ class Plugin extends PluginBase{
                 'category'    => 'Marketing',
                 'icon'        => 'icon-cog',
                 'class'       => 'LaminSanneh\FlexiContact\Models\Settings',
-                'order'       => 100
+                'order'       => 100,
+                'permissions' => ['laminsanneh.flexicontact.access_settings'],
             ]
         ];
     }
