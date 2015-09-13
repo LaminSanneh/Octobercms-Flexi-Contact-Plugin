@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'strings' => [
+    'strings'     => [
         'plugin_desc'               => 'Elastyczny i konfigurowalny Formularz Kontaktowy dla każdej strony',
         'email_desc'                => 'Email wysyłany do administratora, po użyciu formularza przez klienta',
         'recipient_email'           => 'Adres email odbiorcy',
@@ -24,5 +24,9 @@ return [
         'inject_bootstrap_desc'     => 'Wybierz, czy wstrzykiwać pliki js i css bootstrapa',
         'inject_main_script'        => 'Wstrzykuj główny skrypt',
         'inject_main_script_desc'   => 'Wybierz, czy wstrzykiwać główny skrypt komponentu',
+    ],
+    'permissions' => [
+        'tab'      => 'Flexi Contact',
+        'settings' => 'Dostęp do ustawień',
     ],
 ];

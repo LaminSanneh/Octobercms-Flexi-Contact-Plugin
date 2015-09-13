@@ -33,6 +33,16 @@ class Plugin extends PluginBase{
         ];
     }
 
+    public function registerPermissions()
+    {
+        return [
+            'laminsanneh.flexicontact.access_settings' => [
+                'tab'   => 'laminsanneh.flexicontact::lang.permissions.tab',
+                'label' => 'laminsanneh.flexicontact::lang.permissions.settings',
+            ],
+        ];
+    }
+
     public function registerSettings()
     {
         return [
@@ -42,6 +52,7 @@ class Plugin extends PluginBase{
                 'category'    => 'Marketing',
                 'icon'        => 'icon-cog',
                 'class'       => 'LaminSanneh\FlexiContact\Models\Settings',
+                'permissions' => ['laminsanneh.flexicontact.access_settings'],
                 'order'       => 100
             ]
         ];

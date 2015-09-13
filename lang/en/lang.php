@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'strings' => [
+    'strings'     => [
         'plugin_desc'               => 'A Flexible and Configurable Contact Form to Add to any Page',
         'email_desc'                => 'Email sent to the administrator after user filled out the contact form',
         'recipient_email'           => 'Recipient Email',
@@ -24,5 +24,9 @@ return [
         'inject_bootstrap_desc'     => 'Whether To Insert bootstrap css and javascript files',
         'inject_main_script'        => 'Inject Main Script',
         'inject_main_script_desc'   => 'Whether To Insert Main script that comes with component',
+    ],
+    'permissions' => [
+        'tab'      => 'Flexi Contact',
+        'settings' => 'Access settings',
     ],
 ];
