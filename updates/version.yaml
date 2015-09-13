@@ -21,3 +21,5 @@
     - Mail template is now registered properly
 1.2.0:
     - Add Proper validation that can be localized
+1.2.1:
+    - Added permissions to the settings page. PR by @matissjanis
