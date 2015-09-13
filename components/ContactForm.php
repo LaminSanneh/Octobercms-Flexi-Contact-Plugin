@@ -48,8 +48,8 @@ class ContactForm extends ComponentBase{
     public function componentDetails()
     {
         return [
-            'name' => 'Contact Form Displayer',
-            'description' => 'Displays the contact form where ever it\'s been embedded'
+            'name' => 'laminsanneh.flexicontact::lang.strings.component_name',
+            'description' => 'laminsanneh.flexicontact::lang.strings.component_desc'
         ];
     }
 
@@ -57,14 +57,14 @@ class ContactForm extends ComponentBase{
 
         return [
             'injectBootstrapAssets' => [
-                'title'       => 'Inject Bootstrap Assets',
-                'description' => 'Whether To Insert bootstrap css and javascript files',
+                'title'       => 'laminsanneh.flexicontact::lang.strings.inject_bootstrap',
+                'description' => 'laminsanneh.flexicontact::lang.strings.inject_bootstrap_desc',
                 'type'        => 'checkbox',
                 'default'     => true,
             ],
             'injectMainScript' => [
-                'title'       => 'Inject Main Script',
-                'description' => 'Whether To Insert Main script that comes with component',
+                'title'       => 'laminsanneh.flexicontact::lang.strings.inject_main_script',
+                'description' => 'laminsanneh.flexicontact::lang.strings.inject_main_script_desc',
                 'type'        => 'checkbox',
                 'default'     => true,
             ]
