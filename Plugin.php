@@ -21,7 +21,7 @@ class Plugin extends PluginBase{
     {
         return [
             'name'        => 'Flexi Contact',
-            'description' => 'A Flexible and Configurable Contact Form to Add to any Page',
+            'description' => 'laminsanneh.flexicontact::lang.strings.plugin_desc',
             'author'      => 'Lamin Sanneh',
             'icon'        => 'icon-leaf'
         ];
@@ -38,8 +38,8 @@ class Plugin extends PluginBase{
     {
         return [
             'laminsanneh.flexicontact.access_settings' => [
-                'tab' => SettingsManager::CATEGORY_SYSTEM,
-                'label' => 'Access FlexiContact settings',
+                'tab'   => 'laminsanneh.flexicontact::lang.permissions.tab',
+                'label' => 'laminsanneh.flexicontact::lang.permissions.settings'
             ],
         ];
     }
@@ -48,21 +48,21 @@ class Plugin extends PluginBase{
     {
         return [
             'settings' => [
-                'label'       => 'Flexi Contact Settings',
-                'description' => 'Manage the settings for the flexi contact form.',
+                'label'       => 'laminsanneh.flexicontact::lang.strings.settings_label',
+                'description' => 'laminsanneh.flexicontact::lang.strings.settings_desc',
                 'category'    => 'Marketing',
                 'icon'        => 'icon-cog',
                 'class'       => 'LaminSanneh\FlexiContact\Models\Settings',
-                'order'       => 100,
                 'permissions' => ['laminsanneh.flexicontact.access_settings'],
+                'order'       => 100
             ]
         ];
     }
-    
+
     public function registerMailTemplates()
     {
         return [
-            'laminsanneh.flexicontact::emails.message' => 'Email sent to the administrator after usser filled out the contact form',
+            'laminsanneh.flexicontact::emails.message' => 'laminsanneh.flexicontact::lang.strings.email_desc',
         ];
     }
 }
