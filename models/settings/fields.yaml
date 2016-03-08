@@ -23,3 +23,18 @@ fields:
     comment: laminsanneh.flexicontact::lang.strings.confirmation_text_comment
     description: laminsanneh.flexicontact::lang.strings.confirmation_text_desc
     type: textarea
+  site_key:
+    label: laminsanneh.flexicontact::lang.strings.site_key
+    comment: laminsanneh.flexicontact::lang.strings.site_key_comment
+    description: laminsanneh.flexicontact::lang.strings.site_key_desc
+    type: text
+  secret_key:
+    label: laminsanneh.flexicontact::lang.strings.secret_key
+    comment: laminsanneh.flexicontact::lang.strings.secret_key_comment
+    description: laminsanneh.flexicontact::lang.strings.secret_key_desc
+    type: text
+  enable_server_captcha_validation:
+    label: laminsanneh.flexicontact::lang.strings.enable_server_captcha_validation
+    comment: laminsanneh.flexicontact::lang.strings.enable_server_captcha_validation_comment
+    description: laminsanneh.flexicontact::lang.strings.enable_server_captcha_validation_desc
+    type: checkbox

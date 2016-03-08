@@ -24,6 +24,15 @@ return [
         'inject_bootstrap_desc'     => 'Wybierz, czy wstrzykiwać pliki js i css bootstrapa',
         'inject_main_script'        => 'Wstrzykuj główny skrypt',
         'inject_main_script_desc'   => 'Wybierz, czy wstrzykiwać główny skrypt komponentu',
+        'site_key'                  => 'Klucz strony',
+        'site_key_comment'          => 'Kluczem miejsce podane podczas tworzenia konfiguracji captcha z Google',
+        'site_key_desc'             => 'Kluczem miejsce podane podczas tworzenia konfiguracji captcha z Google',
+        'secret_key'                => 'Sekretny klucz',
+        'secret_key_comment'        => 'Tajny klucz podany podczas tworzenia konfiguracji captcha z Google',
+        'secret_key_desc'           => 'Tajny klucz podany podczas tworzenia konfiguracji captcha z Google',
+        'enable_server_captcha_validation'            => 'Włącz Server Captcha Validation',
+        'enable_server_captcha_validation_comment'    => 'Niezależnie od tego, aby umożliwić wysyłanie poświadczeń captcha google do sprawdzania poprawności ( opcjonalne, ale zalecane)',
+        'enable_server_captcha_validation_desc'       => 'Niezależnie od tego, aby umożliwić wysyłanie poświadczeń captcha google do sprawdzania poprawności ( opcjonalne, ale zalecane)'
     ],
     'permissions' => [
         'tab'      => 'Flexi Contact',

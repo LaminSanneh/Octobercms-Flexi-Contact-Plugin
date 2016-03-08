@@ -24,6 +24,15 @@ return [
         'inject_bootstrap_desc'     => 'Whether To Insert bootstrap css and javascript files',
         'inject_main_script'        => 'Inject Main Script',
         'inject_main_script_desc'   => 'Whether To Insert Main script that comes with component',
+        'site_key'                  => 'Site Key',
+        'site_key_comment'          => 'The site key as given when creating your captcha configurations with google',
+        'site_key_desc'             => 'The site key as given when creating your captcha configurations with google',
+        'secret_key'                => 'Secret Key',
+        'secret_key_comment'        => 'The secret key as given when creating your captcha configurations with google',
+        'secret_key_desc'           => 'The secret key as given when creating your captcha configurations with google',
+        'enable_server_captcha_validation'            => 'Enable Server Captcha Validation',
+        'enable_server_captcha_validation_comment'    => 'Whether to enable sending captcha credentials to google to validate(optional but recommended)',
+        'enable_server_captcha_validation_desc'       => 'Whether to enable sending captcha credentials to google to validate(optional but recommended)'
     ],
     'permissions' => [
         'tab'      => 'Flexi Contact',

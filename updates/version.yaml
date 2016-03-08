@@ -27,3 +27,4 @@
     - Added polish language features
 1.2.3:
     - Modified mail templatedefault text
+1.3.0: !!! Added captcha feature, which requires valid google captcha credentials to work

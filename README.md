@@ -13,6 +13,7 @@ A contact form plugin for [OctoberCms](http://www.octobercms.com) to help easily
 
 4. Read the sections and you must fill all of them.
 
+5. Go to [url](http://www.google.com/recaptcha/admin) here to setup valid google captcha credentials as it is required to use the plugin
 
 
 #Usage

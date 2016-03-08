@@ -14,6 +14,8 @@ use LaminSanneh\FlexiContact\Models\Settings;
 use Mail;
 use Validator;
 use ValidationException;
+use Request;
+use Illuminate\Support\MessageBag;
 
 class ContactForm extends ComponentBase{
 
@@ -26,6 +28,7 @@ class ContactForm extends ComponentBase{
         'email' => ['required', 'email'],
         'subject' => ['required'],
         'body' => ['required'],
+        'g-recaptcha-response' => ['required']
     ];
 
     /**
@@ -87,6 +90,13 @@ class ContactForm extends ComponentBase{
             throw new ValidationException($validator);
         }
 
+        // Validate with google if setting is enabled
+        if(Settings::get('enable_server_captcha_validation')){
+            if(!$this->googleCaptchaPasses(post('g-recaptcha-response'))){
+                throw new ValidationException(['g-recaptcha-response' => 'Captcha credentials are incorrect']);
+            }
+        }
+
         // If everything is fine - send an email
         Mail::send('laminsanneh.flexicontact::emails.message', post(), function($message)
         {
@@ -99,6 +109,28 @@ class ContactForm extends ComponentBase{
         return ['error' => false];
     }
 
+    public function googleCaptchaPasses($googleCaptchaResponse){
+        $client = new \GuzzleHttp\Client();
+
+        $params = array(
+            'secret' => Settings::get('secret_key'),
+            'response' => $googleCaptchaResponse,
+            'remoteip' => Request::ip()
+        );
+
+        $res = $client->request(
+                'POST',
+                'https://www.google.com/recaptcha/api/siteverify',
+                array(
+                    'form_params' => $params
+                )
+            );
+
+        $body = json_decode($res->getBody());
+
+        return $body->success;
+    }
+
     public function onRun(){
 
         if($this->property('injectBootstrapAssets') == true){
@@ -106,8 +138,14 @@ class ContactForm extends ComponentBase{
             $this->addJs('assets/js/bootstrap.js');
         }
 
+        $this->addJs('https://www.google.com/recaptcha/api.js');
+
         if($this->property('injectMainScript') == true) {
             $this->addJs('assets/js/main.js');
         }
+    }
+
+    public function siteKey(){
+        return Settings::get('site_key');
     }
 }
