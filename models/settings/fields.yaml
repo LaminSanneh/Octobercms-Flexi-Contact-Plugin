@@ -23,6 +23,11 @@ fields:
     comment: laminsanneh.flexicontact::lang.strings.confirmation_text_comment
     description: laminsanneh.flexicontact::lang.strings.confirmation_text_desc
     type: textarea
+  enable_captcha:
+    label: laminsanneh.flexicontact::lang.strings.enable_captcha
+    comment: laminsanneh.flexicontact::lang.strings.enable_captcha_comment
+    description: laminsanneh.flexicontact::lang.strings.enable_captcha_desc
+    type: switch
   site_key:
     label: laminsanneh.flexicontact::lang.strings.site_key
     comment: laminsanneh.flexicontact::lang.strings.site_key_comment
@@ -37,4 +42,4 @@ fields:
     label: laminsanneh.flexicontact::lang.strings.enable_server_captcha_validation
     comment: laminsanneh.flexicontact::lang.strings.enable_server_captcha_validation_comment
     description: laminsanneh.flexicontact::lang.strings.enable_server_captcha_validation_desc
-    type: checkbox
+    type: switch

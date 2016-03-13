@@ -148,4 +148,8 @@ class ContactForm extends ComponentBase{
     public function siteKey(){
         return Settings::get('site_key');
     }
+
+    public function enableCaptcha(){
+        return Settings::get('enable_captcha');
+    }
 }

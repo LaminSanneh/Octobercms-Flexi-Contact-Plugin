@@ -18,9 +18,11 @@
         <div class="form-group">
             <textarea class="form-control" value="" name="body" placeholder="Enter Message" cols="30" rows="10"></textarea>
         </div>
-        <div class="form-group">
-            <div class="g-recaptcha" data-sitekey="{{ __SELF__.siteKey }}"></div>
-        </div>
+        {% if __SELF__.enableCaptcha %}
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="{{ __SELF__.siteKey }}"></div>
+            </div>
+        {% endif %}
         <button type="submit" class="btn btn-primary btn-lg pull-right">Send</button>
     </div>
 </form>

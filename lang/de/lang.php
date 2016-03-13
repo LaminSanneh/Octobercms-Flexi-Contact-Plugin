@@ -32,7 +32,10 @@ return [
         'secret_key_desc'           => 'Der geheime Schlüssel den Sie bei der Einrichtung von Google bekommen haben',
         'enable_server_captcha_validation'            => 'Server Captcha Validierung aktivieren',
         'enable_server_captcha_validation_comment'    => 'Sollen die captcha credentials zum validieren zu Google gesendet werden (optional aber empfohlen)',
-        'enable_server_captcha_validation_desc'       => 'Sollen die captcha credentials zum validieren zu Google gesendet werden (optional aber empfohlen)'
+        'enable_server_captcha_validation_desc'       => 'Sollen die captcha credentials zum validieren zu Google gesendet werden (optional aber empfohlen)',
+        'enable_captcha'            => 'Aktivieren captcha',
+        'enable_captcha_comment'    => 'Ermöglicht captcha Funktionalität in Kontaktformular , wenn geprüft',
+        'enable_captcha_desc'       => 'Ermöglicht captcha Funktionalität in Kontaktformular , wenn geprüft'
     ],
     'permissions' => [
         'tab'      => 'Flexi Contact',

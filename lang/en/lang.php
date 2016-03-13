@@ -32,7 +32,10 @@ return [
         'secret_key_desc'           => 'The secret key as given when creating your captcha configurations with google',
         'enable_server_captcha_validation'            => 'Enable Server Captcha Validation',
         'enable_server_captcha_validation_comment'    => 'Whether to enable sending captcha credentials to google to validate(optional but recommended)',
-        'enable_server_captcha_validation_desc'       => 'Whether to enable sending captcha credentials to google to validate(optional but recommended)'
+        'enable_server_captcha_validation_desc'       => 'Whether to enable sending captcha credentials to google to validate(optional but recommended)',
+        'enable_captcha'            => 'Enable captcha',
+        'enable_captcha_comment'    => 'Enables captcha functionality in contact form when checked',
+        'enable_captcha_desc'       => 'Enables captcha functionality in contact form when checked'
     ],
     'permissions' => [
         'tab'      => 'Flexi Contact',
