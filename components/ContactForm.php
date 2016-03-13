@@ -27,8 +27,7 @@ class ContactForm extends ComponentBase{
         'name' => ['required'],
         'email' => ['required', 'email'],
         'subject' => ['required'],
-        'body' => ['required'],
-        'g-recaptcha-response' => ['required']
+        'body' => ['required']
     ];
 
     /**
@@ -82,6 +81,9 @@ class ContactForm extends ComponentBase{
      */
     public function onMailSent()
     {
+        if($this->enableCaptcha()){
+            $this->formValidationRules['g-recaptcha-response'] = ['required'];
+        }
         // Build the validator
         $validator = Validator::make(post(), $this->formValidationRules, $this->customMessages);
 
@@ -90,10 +92,12 @@ class ContactForm extends ComponentBase{
             throw new ValidationException($validator);
         }
 
-        // Validate with google if setting is enabled
-        if(Settings::get('enable_server_captcha_validation')){
-            if(!$this->googleCaptchaPasses(post('g-recaptcha-response'))){
-                throw new ValidationException(['g-recaptcha-response' => 'Captcha credentials are incorrect']);
+        if($this->enableCaptcha()){
+            // Validate with google if setting is enabled
+            if(Settings::get('enable_server_captcha_validation')){
+                if(!$this->googleCaptchaPasses(post('g-recaptcha-response'))){
+                    throw new ValidationException(['g-recaptcha-response' => 'Captcha credentials are incorrect']);
+                }
             }
         }
 

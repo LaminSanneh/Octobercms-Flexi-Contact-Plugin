@@ -34,3 +34,5 @@
     - Added german translation language file
 1.3.3:
     - Added option to allow user to enable or disable captcha in contact form
+1.3.4:
+    - Made sure captcha enabling or disabling doesnt produce bug
