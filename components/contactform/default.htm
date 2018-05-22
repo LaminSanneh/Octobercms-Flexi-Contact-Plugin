@@ -18,6 +18,14 @@
         <div class="form-group">
             <textarea class="form-control" value="" name="body" placeholder="Enter Message" cols="30" rows="10"></textarea>
         </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label class="form-label">
+                    <input type="checkbox" value="1" autocomplete="off" required name="accept_privacy_policy" />
+                    {{ 'I accept the <a href="{link}" target="privacy">privacy policy</a>.' | _ | replace({'{link}': __SELF__.privacyPolicyLink }) | raw }}
+                </label>
+            </div>
+        </div>
         {% if __SELF__.enableCaptcha %}
             <div class="form-group">
                 <div class="g-recaptcha" data-sitekey="{{ __SELF__.siteKey }}"></div>
