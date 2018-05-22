@@ -27,7 +27,8 @@ class ContactForm extends ComponentBase{
         'name' => ['required'],
         'email' => ['required', 'email'],
         'subject' => ['required'],
-        'body' => ['required']
+        'body' => ['required'],
+        'accept_privacy_policy' => ['required', 'boolean'],
     ];
 
     /**
@@ -69,7 +70,13 @@ class ContactForm extends ComponentBase{
                 'description' => 'laminsanneh.flexicontact::lang.strings.inject_main_script_desc',
                 'type'        => 'checkbox',
                 'default'     => true,
-            ]
+            ],
+            'privacyPolicyLink' => [
+                'title'       => 'laminsanneh.flexicontact::lang.strings.privacy_policy_link',
+                'description' => 'laminsanneh.flexicontact::lang.strings.privacy_policy_link_desc',
+                'type'        => 'text',
+                'default'     => '/privacy',
+            ],
         ];
     }
 

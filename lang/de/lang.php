@@ -35,7 +35,9 @@ return [
         'enable_server_captcha_validation_desc'       => 'Sollen die captcha credentials zum validieren zu Google gesendet werden (optional aber empfohlen)',
         'enable_captcha'            => 'Aktivieren captcha',
         'enable_captcha_comment'    => 'Ermöglicht captcha Funktionalität in Kontaktformular , wenn geprüft',
-        'enable_captcha_desc'       => 'Ermöglicht captcha Funktionalität in Kontaktformular , wenn geprüft'
+        'enable_captcha_desc'       => 'Ermöglicht captcha Funktionalität in Kontaktformular , wenn geprüft',
+        'privacy_policy_link'       => 'Link zu den Datenschutzbestimmungen',
+        'privacy_policy_link_desc'  => 'Die europäische DSGVO setzt die Bestätigung der Datenschutzbestimmungen für das Absenden eines Kontaktformulares voraus.',
     ],
     'permissions' => [
         'tab'      => 'Flexi Contact',

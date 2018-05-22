@@ -35,7 +35,9 @@ return [
         'enable_server_captcha_validation_desc'       => 'Whether to enable sending captcha credentials to google to validate(optional but recommended)',
         'enable_captcha'            => 'Enable captcha',
         'enable_captcha_comment'    => 'Enables captcha functionality in contact form when checked',
-        'enable_captcha_desc'       => 'Enables captcha functionality in contact form when checked'
+        'enable_captcha_desc'       => 'Enables captcha functionality in contact form when checked',
+        'privacy_policy_link'       => 'Link to privacy policy',
+            'privacy_policy_link_desc'  => 'The european GDPR requires acceptance of the privacy policy, before submitting contact forms.',
     ],
     'permissions' => [
         'tab'      => 'Flexi Contact',
